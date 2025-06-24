@@ -1,0 +1,94 @@
+<html>
+    <head>
+            <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+               < table border="1">
+            <tr >
+                 <td colspan="4">
+                    <input type="text" id="inputBox" value="o" />
+                 </td>
+            </tr>
+            <tr>
+                        <td class="digitbutton" onclick="digitBtnPressed(7)">7</td>
+                        <td  class="digitbutton" onclick="digitBtnPressed(8)">8 </td>
+                        <td  class="digitbutton" onclick="digitBtnPressed(9)">9</td>
+                        <td  class="digitbutton" onclick=" operatorBtnACPressed('*')">*</td>
+            </tr>
+            <tr>
+                         <td class="digitbutton"  onclick="digitBtnPressed(4)">4</td>
+                         <td class="digitbutton" onclick="digitBtnPressed(5)">5</td>
+                         <td class="digitbutton" onclick="digitBtnPressed(6)">6</td>
+                         <td class="digitbutton" onclick=" operatorBtnACPressed('-')">-</td>
+            </tr>
+            <tr>
+                        <td class="digitbutton" onclick="digitBtnPressed(1)">1</td>
+                        <td class="digitbutton"onclick="digitBtnPressed(2)">2</td>
+                        <td class="digitbutton" onclick="digitBtnPressed(3)">3</td>
+                        <td class="digitbutton"onclick=" operatorBtnACPressed('+')">+</td>
+            </tr>
+            <tr>
+                        <td class="digitbutton"colspan="2"onclick="digitBtnPressed(0)">0</td>
+
+                        <td class="ACbutton" onclick="digitBtnPressed(AC)">AC</td>
+                        <td class="digitbutton" onclick=" operatorBtnACPressed('/')">/</td>
+                       
+            </tr>
+            <tr>
+                <td class="digitbutton"colspan="4"onclick="equalsBtnPressed()">=</td>
+            </tr>
+            </table>
+
+            <script>
+                  var newLine= true ; //Boolean variable. Determines if the next thing the user types should be on a new line 
+                  var value1;
+                  var currentOperator;
+                  //Event handler for when any digit button is pressed
+                    function digitBtnPressed (button){
+
+                        if (newLine){
+                            document.getAnimations("inputBox"). value=button;
+                            newLine = false;
+                        } else {
+                            var current = document. getElementById("inputBox"). value;
+                           document. getElementById("inputBox"). value =button;
+                        }
+                    }
+          //Event handler for when the AC button is pressed
+                       function btnACPressed(){
+                        document.getElementById("inputBox").value =0;
+                        newLine = true;
+                       }
+          //Event handler for operator buttons
+                       function operatorBtnACPressed(operator){
+                        currentOperator= operator; 
+                        value1= parseInt( document.getElementById("inputBox"). value);
+                        newLine= true;
+                       }
+
+                       //event handler for equals to button
+                       function equalsBtnPressed(){
+                        var value2= parseInt(Document.getElementById("inputBox").value);
+                        var finalTotal;
+
+                        switch(currentOperator){
+                            case "+":
+                           case "+":
+                                finalTotal = value1 + value2 ;
+                                break;     finalTotal = value1 + value2 ;
+                                break;
+                            case "-":
+                                finalTotal = value1 + value2 ;
+                                break;
+                            case "*":
+                                finalTotal = value1 + value2 ;
+                                break;
+                                case "/":
+                                finalTotal = value1 + value2 ;
+                                break;
+                        }
+                        document.getElementById("inputbox").value =finalTotal;
+                       }
+            </script>
+    </body>
+</html>
